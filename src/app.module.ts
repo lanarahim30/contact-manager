@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
+import { CommonModule } from './common/common.module';
+import { UserModule } from './user/user.module';
+import { APP_FILTER } from '@nestjs/core';
+import { ErrorFilter } from './common/error.filter';
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [CommonModule, UserModule],
+  controllers: [],
+  providers: [
+	{
+		provide: APP_FILTER,
+		useClass: ErrorFilter
+	}
+  ],
 })
 export class AppModule {}
