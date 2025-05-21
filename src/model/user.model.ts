@@ -4,6 +4,10 @@ export class UserRegisterRequest {
 	name: string
 
 }
+export class LoginRequest {
+	username: string
+	password: string
+}
 
 export class UserResponse {
 	username: string
