@@ -14,3 +14,9 @@ export class UserResponse {
 	name: string
 	token? : string
 }
+
+export class UserUpdateRequest {
+	password?: string
+	name?: string
+
+}
