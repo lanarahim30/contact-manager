@@ -103,6 +103,9 @@ Endpoint : /api/users/profile
 
 Method: PATCH
 
+Headers: 
+- Authorization : token
+
 Request Body :
 
 ```json
@@ -132,3 +135,26 @@ Response Body (Failed):
 ```
 
 ## Logout User
+Endpoint : /api/users/logout
+
+Method: DELETE
+
+Headers: 
+- Authorization : token
+
+Request Body :
+
+```json
+{
+	"password" : "secret", // Optional
+	"name" : "John Doe" // Optional
+}
+```
+
+Response Body (Success):
+
+```json
+{
+	"data" : true
+}
+```
