@@ -12,7 +12,7 @@ export class ErrorFilter implements ExceptionFilter {
 			})
 		}else if(exception instanceof ZodError) {
 			response.status(400).json({
-				errors: exception.message
+				errors: JSON.parse(exception.message)
 			})
 		}else{
 			response.status(500).json({
