@@ -202,9 +202,23 @@ describe('ContactController (e2e)', () => {
 			await testService.createContact()
 		})
 
-		it("should be able to search contact", async () => {
+		it("should be able to search contacts", async () => {
 			const response = await request(app.getHttpServer())
 				.get(`/api/contacts/search`)
+				.set('Authorization','token')
+			
+			logger.info(response.body)
+			
+			expect(response.status).toBe(200)
+			expect(response.body.data.length).toBe(1)
+		})
+
+		it("should be able to search contacts by name", async () => {
+			const response = await request(app.getHttpServer())
+				.get(`/api/contacts/search`)
+				.query({
+					name: 'es'
+				})
 				.set('Authorization','token')
 			
 			logger.info(response.body)
